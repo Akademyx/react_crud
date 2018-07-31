@@ -8,7 +8,7 @@ class App extends Component {
 
     this.state = {
        title: 'This is Alex\'s ',
-       og: true
+       og: false
     }
 
     // this.onSubmit = this.onSubmit.bind(this);
