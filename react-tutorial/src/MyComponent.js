@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 const propTypes = {
     name: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    value: PropTypes.value,
     onClicked: PropTypes.func,
     //if prop types is an object
     // shape: PropTypes.shape({})
@@ -47,7 +48,7 @@ class MyComponent extends Component {
     // }
   
   render() {
-    const {title, name, onClick } = this.props; //for lines 14-15
+    const {title, name, value, onClick } = this.props; //for lines 14-15
     return (
       <div className="component">
         <h1>This is a comopnent that is dropped into another component</h1>
@@ -55,6 +56,7 @@ class MyComponent extends Component {
         {/* <h2>Title: {this.props.name}</h2> */}
         <h2>Title: {title}</h2>
         <h2>Name: {name}</h2>
+        <h2>Value: {value}</h2>
         <div onClick={onClick}>Click me! </div>
       </div>
     );

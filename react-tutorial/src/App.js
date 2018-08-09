@@ -14,12 +14,16 @@ class App extends Component {
 
     this.state={
       name: "Init name",
-      title: "Init title"
+      title: "Init title",
+      value: 0,
+      checked: true
     }
 
     // this.onSubmit = this.onSubmit.bind(this);
     // this.onClick = this.onClick.bind(this);
-    this.updateName = this.updateName.bind(this);
+    // this.updateName = this.updateName.bind(this);
+    this.updateValue = this.updateValue.bind(this);
+    // this.updateCheck = this.updateCheck.bind(this);
   }
   //constructor + super allows for a two way binding to our input.
 
@@ -38,14 +42,23 @@ class App extends Component {
   //   })
   // }
 
-  updateName(event){
+  // updateName(event){
+  //   //this set state mutates the title, so it is a permanent change.
+  //   this.setState({title:"You re in deep!", name:event.target.value}, ()=>{
+  //     console.log("fired")
+  //   })
+  // }
 
-    //this set state mutates the title, so it is a permanent change.
-    this.setState({title:"You re in deep!", name:event.target.value}, ()=>{
+  // updateCheck(){
+  //   this.setState({checked: !this.state.checked})
+  // }
+
+  updateValue(){
+    this.setState(()=>{
       console.log("fired")
+      return {value: this.state.value + 1}
     })
   }
-
 
   // onChange(event){
   //   console.log(event.target.value)
@@ -90,15 +103,23 @@ class App extends Component {
           name = {this.state.name}
           // name="tran"
           //with default props it will cover for name
-          onClick = {this.onClick}
+          value = {this.state.value}
+          // onClick = {this.onClick}
+          
         />
         {/* <input defaultValue="booty"/>  */}
         {/* for uncontrolled values */}
-
+        <button
+          onClick={this.updateValue}
+          value={this.state.value}
+        >+1 to value</button>
         <input 
-          onChange={this.updateName}
-          value={this.state.name} 
+          type="checkbox"
+          // onChange={this.updateCheck}
+          // value={this.state.name} 
+          // checked={this.state.checked}
         />
+
 
       </div>
     );
